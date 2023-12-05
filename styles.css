@@ -1,0 +1,28 @@
+ body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #qrCodeCanvas {
+      border: 2px solid #333;
+      margin-top: 20px;
+    }
+
+    #text {
+      padding: 5px;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
