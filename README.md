@@ -16,11 +16,7 @@
             <li><a href="#contact">Контакты</a></li>
         </ul>
     </nav>
-    <!-- Добавьте кнопку для поиска, если нужно -->
-    <div class="search">
-        <input type="text" placeholder="Поиск...">
-        <button type="submit">Найти</button>
-    </div>
+   
   <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
   <button onclick="generateVideoQR()">Создать QR-код</button>
   <br>
