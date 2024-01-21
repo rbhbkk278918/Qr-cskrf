@@ -9,13 +9,7 @@ head>
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#services">Услуги</a></li>
-            <li><a href="#contact">Контакты</a></li>
-        </ul>
-    </nav>
+
 
     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
     <button onclick="generateVideoQR()">Создать QR-код</button>
@@ -65,4 +59,12 @@ head>
             document.getElementById('qrcode').innerHTML = ''; // Очищаем контейнер QR-кода
         }
     </script>
-</body>
+    
+  <nav>
+        <ul>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+    </body>
