@@ -57,7 +57,13 @@
       var qrContainer = document.getElementById('qrcode');
       qrContainer.innerHTML = '';
       qrContainer.appendChild(qrImage);
-    }
+    
+       }
+
+        function clearQRCode() {
+            document.getElementById('videoLink').value = ''; // Очищаем поле ввода
+            document.getElementById('qrcode').innerHTML = ''; // Очищаем контейнер QR-кода
+        }
   </script>
 
   
