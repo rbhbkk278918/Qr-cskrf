@@ -1,12 +1,12 @@
 
 
 
-  
+  <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Генератор QR-кода для видео</title>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-
+</head>
 <body>
     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
     <button onclick="generateVideoQR()">Создать QR-код</button>
