@@ -1,6 +1,5 @@
 
 
-
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Генератор QR-кода для видео</title>
