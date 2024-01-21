@@ -19,6 +19,8 @@
    
   <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
   <button onclick="generateVideoQR()">Создать QR-код</button>
+  <button onclick="clearQRCode()">Очистить</button> <!-- Добавляем кнопку "Очистить" -->
+    
   <br>
   <div id="qrcode"></div>
 
