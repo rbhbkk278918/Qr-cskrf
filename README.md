@@ -54,6 +54,29 @@
             qrContainer.innerHTML = '';
             qrContainer.appendChild(qrImage);
         }
+<script>
+    // Smooth scrolling for anchor links
+    document.addEventListener("DOMContentLoaded", function() {
+        var scrollLinks = document.querySelectorAll('a[href^="#"]');
+        
+        for (var i = 0; i < scrollLinks.length; i++) {
+            scrollLinks[i].addEventListener("click", smoothScroll);
+        }
+
+        function smoothScroll(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute("href").substring(1);
+            var targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: "smooth"
+                });
+            }
+        }
+    });
+</script>
 
         function clearQRCode() {
             document.getElementById('videoLink').value = ''; // Очищаем поле ввода
