@@ -1,6 +1,5 @@
 
 
- 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +11,7 @@
 <body>
     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
     <button onclick="generateVideoQR()">Создать QR-код</button>
+    <button onclick="pasteFromClipboard()">Вставить</button> <!-- Added "Вставить" button -->
     <button onclick="clearQRCode()">Очистить</button>
     <button onclick="copyToClipboard()">Копировать в буфер</button>
     <br>
@@ -22,16 +22,17 @@
     <input id="qrColor" type="color" value="#000000">
     
     <label for="qrBgColor">Цвет фона QR-кода:</label>
-    <input id="qrBgColor" type="color" value="#FFFFFF"> <!-- Added input for QR code background color -->
-
+    <input id="qrBgColor" type="color" value="#FFFFFF">
+    
     <br>
     <div id="qrcode"></div>
+    
     <script>
         function generateVideoQR() {
             var videoLink = document.getElementById('videoLink').value;
             var qrSize = document.getElementById('qrSize').value;
             var qrColor = document.getElementById('qrColor').value;
-            var qrBgColor = document.getElementById('qrBgColor').value; // Get background color
+            var qrBgColor = document.getElementById('qrBgColor').value;
 
             var qr = qrcode(0, 'M');
             qr.addData(videoLink);
@@ -40,7 +41,7 @@
             qrCanvas.width = qrSize;
             qrCanvas.height = qrSize;
             var qrContext = qrCanvas.getContext('2d');
-            qrContext.fillStyle = qrBgColor; // Set background color
+            qrContext.fillStyle = qrBgColor;
             qrContext.fillRect(0, 0, qrCanvas.width, qrCanvas.height);
             qrContext.fillStyle = qrColor;
             var moduleCount = qr.getModuleCount();
@@ -77,14 +78,19 @@
 
             alert('QR-код скопирован в буфер обмена!');
         }
+
+        function pasteFromClipboard() {
+            navigator.clipboard.readText().then(function(text) {
+                document.getElementById('videoLink').value = text;
+            });
+        }
     </script>
 
     <nav>
         <ul>
-              <ul><a href="#about">О нас</a><ul>
-               <ul><a href="#services">Услуги</a><ul>
-               <ul><a href="#contact">Контакты</a><ul>
+           <ul> <a href="#about">О нас</a></ul>
+           <ul> <a href="#services">Услуги</a></ul>
+           <ul> <a href="#contact">Контакты</a></ul>
         </ul>
     </nav>
 </body>
-
