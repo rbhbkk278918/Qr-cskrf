@@ -1,6 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -137,10 +135,7 @@
         };
     </script>
     
-    <p>&copy; 2024 Ваша Компания. Все права защищены. | <span id="companyLink"></span></p>
-    <!-- Add any other footer content here -->
-    </footer>
-</body>
-</html>
+    <p>&copy; 2024  Компания. скам 278918 Все права защищены. | <span id="companyLink"></span></p>
+    
 
 
