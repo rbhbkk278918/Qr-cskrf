@@ -33,7 +33,7 @@
     <div id="videoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeVideoModal()">&times;</span>
-            <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+            <iframe id="https:)videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
