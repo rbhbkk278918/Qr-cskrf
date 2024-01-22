@@ -1,4 +1,7 @@
 
+
+!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,21 +14,25 @@
 
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Логотип">
-       
-    </header>
+     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
+    <button onclick="generateVideoQR()">Создать QR-код</button>
+    <button onclick="pasteFromClipboard()">Вставить</button>
+    <button onclick="clearQRCode()">Очистить</button>
+    <button onclick="copyToClipboard()">Копировать в буфер</button>
+    <br>
+    <label for="qrSize">Размер QR-кода:</label>
+    <input id="qrSize" type="number" min="100" max="500" value="200">
+    
+    <label for="qrColor">Цвет QR-кода:</label>
+    <input id="qrColor" type="color" value="#000000">
+    
+    <label for="qrBgColor">Цвет фона QR-кода:</label>
+    <input id="qrBgColor" type="color" value="#FFFFFF">
+    
+    <div id="qrcode"></div>
 
-    <nav>
-        <ul>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#services">Услуги</a></li>
-            <li><a href="#contact">Контакты</a></li>
-        </ul>
-    </nav>
-
-    <main>
-       <div id="videoModal" class="modal">
+   
+    <div id="videoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeVideoModal()">&times;</span>
             <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
@@ -113,10 +120,10 @@
             }
         };
     </script>
-
-    <footer>
+    
         <p>&copy; 2024 Ваша Компания. Все права защищены. | <span id="companyLink"></span></p>
         <!-- Add any other footer content here -->
     </footer>
 </body>
+</html>
 
