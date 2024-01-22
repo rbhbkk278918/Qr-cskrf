@@ -1,28 +1,33 @@
- body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
 
-    #qrCodeCanvas {
-      border: 13px solid #333;
-      margin-top: 13px;
-    }
+#qrcode {
+    margin-top: 20px;
+}
 
-    #text {
-      padding: 6px;
-      margin-top: 13px;
-    }
+label {
+    margin-top: 10px;
+    display: block;
+}
 
-    button {
-      padding: 8px 13px;
-      margin-top: 13px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+input {
+    margin-top: 5px;
+    padding: 5px;
+}
 
-    button:hover {
-      background-color: #45a049;
-    }
+button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
