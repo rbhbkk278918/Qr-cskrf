@@ -1,5 +1,5 @@
 
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,11 +8,9 @@
     <title>Генератор QR-кода для видео</title>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-
 </head>
 <body>
-     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
+    <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
     <button onclick="generateVideoQR()">Создать QR-код</button>
     <button onclick="pasteFromClipboard()">Вставить</button>
     <button onclick="clearQRCode()">Очистить</button>
@@ -29,15 +27,33 @@
     
     <div id="qrcode"></div>
 
-   
     <div id="videoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeVideoModal()">&times;</span>
-            <iframe id="https:videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+            <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
+        var player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('videoFrame', {
+                height: '315',
+                width: '560',
+                videoId: '', // Идентификатор видео будет установлен динамически
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Воспроизведение видео при готовности плеера
+            event.target.playVideo();
+        }
+
         function generateVideoQR() {
             var videoLink = document.getElementById('videoLink').value;
             var qrSize = document.getElementById('qrSize').value;
@@ -68,6 +84,9 @@
             var qrContainer = document.getElementById('qrcode');
             qrContainer.innerHTML = '';
             qrContainer.appendChild(qrImage);
+
+            // Установка идентификатора видео для воспроизведения
+            player.loadVideoById(videoLink);
         }
 
         function clearQRCode() {
@@ -110,7 +129,6 @@
             modal.style.display = 'none';
         }
 
-        
         window.onclick = function(event) {
             var modal = document.getElementById('videoModal');
             if (event.target == modal) {
@@ -119,7 +137,10 @@
         };
     </script>
     
-        <p>&copy; 2024 Ваша Компания. Все права защищены. | <span id="companyLink"></span></p>
-        <!-- Add any other footer content here -->
+    <p>&copy; 2024 Ваша Компания. Все права защищены. | <span id="companyLink"></span></p>
+    <!-- Add any other footer content here -->
     </footer>
+</body>
+</html>
+
 
