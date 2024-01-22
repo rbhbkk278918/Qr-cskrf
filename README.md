@@ -1,5 +1,6 @@
 
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
 <body>
     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
     <button onclick="generateVideoQR()">Создать QR-код</button>
-    <button onclick="pasteFromClipboard()">Вставить</button> <!-- Added "Вставить" button -->
+    <button onclick="pasteFromClipboard()">Вставить</button>
     <button onclick="clearQRCode()">Очистить</button>
     <button onclick="copyToClipboard()">Копировать в буфер</button>
     <br>
@@ -24,9 +25,16 @@
     <label for="qrBgColor">Цвет фона QR-кода:</label>
     <input id="qrBgColor" type="color" value="#FFFFFF">
     
-    <br>
     <div id="qrcode"></div>
-    
+
+    <!-- Modal Dialog for Playing Video Links -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeVideoModal()">&times;</span>
+            <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
     <script>
         function generateVideoQR() {
             var videoLink = document.getElementById('videoLink').value;
@@ -82,15 +90,39 @@
         function pasteFromClipboard() {
             navigator.clipboard.readText().then(function(text) {
                 document.getElementById('videoLink').value = text;
+                openVideoModal(text);
             });
         }
+
+        function openVideoModal(videoLink) {
+            var modal = document.getElementById('videoModal');
+            var videoFrame = document.getElementById('videoFrame');
+            videoFrame.src = videoLink;
+            modal.style.display = 'block';
+        }
+
+        function closeVideoModal() {
+            var modal = document.getElementById('videoModal');
+            var videoFrame = document.getElementById('videoFrame');
+            videoFrame.src = '';
+            modal.style.display = 'none';
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById('videoModal');
+            if (event.target == modal) {
+                closeVideoModal();
+            }
+        };
     </script>
 
     <nav>
+        <nav>
         <ul>
-           <ul> <a href="#about">О нас</a></ul>
-           <ul> <a href="#services">Услуги</a></ul>
-           <ul> <a href="#contact">Контакты</a></ul>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#contact">Контакты</a></li>
         </ul>
     </nav>
 </body>
