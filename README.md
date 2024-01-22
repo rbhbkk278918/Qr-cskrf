@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <input id="videoLink" type="text" placeholder="Введите идентификатор видео на YouTube">
+    
     <button onclick="generateVideoQR()">Создать QR-код</button>
     <button onclick="pasteFromClipboard()">Вставить</button>
     <button onclick="clearQRCode()">Очистить</button>
