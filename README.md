@@ -38,8 +38,8 @@
 
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('videoFrame', {
-                height: '315',
-                width: '560',
+                height: '1500',
+                width: '1000',
                 videoId: '', // Идентификатор видео будет установлен динамически
                 events: {
                     'onReady': onPlayerReady
