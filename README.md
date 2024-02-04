@@ -135,7 +135,8 @@
             }
         };
     </script>
-    
+    <img src="https://sun9-16.userapi.com/impg/uSDqOkRdjKkyyxUCVBFMGOmbgS8rZMBUsF0I_w/FB8x5pQZBFU.jpg?size=537x240&quality=96&sign=45cf5005578962c2414c690c801979ac&type=share.jpg" alt="Описание изображения">
+    <img src="https://status2010.files.wordpress.com/2010/09/00010exp.jpeg?w=300.jpg" alt="Описание изображения">
     <p>&copy; 2024 Разработчик скам Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
     
 
