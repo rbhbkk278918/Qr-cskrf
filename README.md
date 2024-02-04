@@ -135,7 +135,7 @@
         };
     </script>
     
-    <p>&copy; 2024  Компания. скам 278918993 Все права защищены. | <span id="companyLink"></span></p>
+    <p>&copy; 2024 Разработчик скам Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
     
 
 
