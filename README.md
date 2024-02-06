@@ -138,6 +138,8 @@
     <img src="https://status2010.files.wordpress.com/2010/09/00010exp.jpeg?w=300.jpg" alt="Описание изображения">
     <video width="320" height="240" controls>
   <source src=").mp4".mp4" type="video/mp4">
+  <link rel="https://m.politnavigator.net/wp-content/uploads/2021/05/scale_1200-6.jpg" type="text/css" href="стилевой_файл.css">
+
   Ваш браузер не поддерживает тег video.
 </video>
 
