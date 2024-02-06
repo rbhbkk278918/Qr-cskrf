@@ -140,7 +140,7 @@
   <source src=").mp4".mp4" type="video/mp4">
   <link rel="https://m.politnavigator.net/wp-content/uploads/2021/05/scale_1200-6.jpg" type="text/css" href="стилевой_файл.css">
 
-  Ваш браузер не поддерживает тег video.
+
 </video>
 
     <p>&copy; 2024 Разработчик скам Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
