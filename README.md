@@ -142,7 +142,7 @@
 
 
 </video>
-<img src="https://e7.pngegg.com/pngimages/825/748/png-clipart-sound-idea-digital-web-development-logo-brand-others-miscellaneous-angle.png" alt="Описание логотипа">
+
     <p>&copy; 2024 Разработчик скам Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
     
 
