@@ -134,7 +134,7 @@
             }
         };
     </script>
-    <img src="https://sun9-16.userapi.com/impg/uSDqOkRdjKkyyxUCVBFMGOmbgS8rZMBUsF0I_w/FB8x5pQZBFU.jpg?size=537x240&quality=96&sign=45cf5005578962c2414c690c801979ac&type=share.jpg" alt="https://www.tinkoff.ru/cards/debit-cards/tinkoff-black/form/payments-and-transfers/?utm_source=yandex&utm_medium=ctx.cpc&utm_campaign=debit.black_pip_0124_tb_search_ya_brand.general.conv_aon_0423_rus&utm_term=тинькофф&utm_content=pid%7C44236672605%7Cretid%7C44236672605%7Ccid%7C86246291%7Cgid%7C5173117400%7Caid%7C13938003675%7Cpostype%7Cpremium%7Cpos%7C1%7Csrc%7Cnone%7Cdvc%7Cdesktop%7Cregionid%7C11457%7Ccorid%7C18186124&yclid=13978834312276213759">
+<img src="https://sun9-16.userapi.com/impg/uSDqOkRdjKkyyxUCVBFMGOmbgS8rZMBUsF0I_w/FB8x5pQZBFU.jpgsize=537x240&quality=96&sign=45cf5005578962c2414c690c801979ac&type=share.jpg" alt="https://www.tinkoff.ru/cards/debit-cards/tinkoff-black/form/payments-and-transfers/?utm_source=yandex&utm_medium=ctx.cpc&utm_campaign=debit.black_pip_0124_tb_search_ya_brand.general.conv_aon_0423_rus&utm_term=тинькофф&utm_content=pid%7C44236672605%7Cretid%7C44236672605%7Ccid%7C86246291%7Cgid%7C5173117400%7Caid%7C13938003675%7Cpostype%7Cpremium%7Cpos%7C1%7Csrc%7Cnone%7Cdvc%7Cdesktop%7Cregionid%7C11457%7Ccorid%7C18186124&yclid=13978834312276213759">
     <img src="https://status2010.files.wordpress.com/2010/09/00010exp.jpeg?w=300.jpg" alt="Описание изображения">
     <video width="320" height="240" controls>
   <source src=").mp4".mp4" type="video/mp4">
