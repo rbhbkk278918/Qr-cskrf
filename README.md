@@ -134,14 +134,13 @@
             }
         };
     </script>
-<img src="https://sun9-16.userapi.com/impg/uSDqOkRdjKkyyxUCVBFMGOmbgS8rZMBUsF0I_w/FB8x5pQZBFU.jpgsize=537x240&quality=96&sign=45cf5005578962c2414c690c801979ac&type=share.jpg" alt="описание">
+
     <img src="https://status2010.files.wordpress.com/2010/09/00010exp.jpeg?w=300.jpg" alt="Описание изображения">
-    <video width="320" height="240" controls>
-  <source src=").mp4".mp4" type="video/mp4">
-  <link rel="https://m.politnavigator.net/wp-content/uploads/2021/05/scale_1200-6.jpg" type="text/css" href="стилевой_файл.css">
+   
+  
 
 
-</video>
+
 
     <p>&copy; 2024 Разработчик  Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
     
