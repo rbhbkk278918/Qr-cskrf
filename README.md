@@ -7,6 +7,27 @@
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <style>
+        <style>
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input {
+        width: calc(50% - 10px); /* Уменьшить ширину до 50% */
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    #qrSize,
+    #qrColor,
+    #qrBgColor {
+        width: calc(50% - 10px); /* Уменьшить ширину до 50% */
+    }
+
+   
+
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
