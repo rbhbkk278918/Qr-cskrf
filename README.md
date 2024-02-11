@@ -236,7 +236,6 @@
         };
     </script>
 
-    <img src="https://status2010.files.wordpress.com/2010/09/00010exp.jpeg?w=300.jpg" alt="Описание изображения">
     
 
 
