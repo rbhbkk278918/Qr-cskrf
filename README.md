@@ -1,147 +1,22 @@
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Генератор QR-кода для видео</title>
-    <script src="script.js"></script>
+    <title>Генератор и сканер QR-кода для видео</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-    <style>
-        <style>
-    label {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    input {
-        width: calc(50% - 10px); /* Уменьшить ширину до 50% */
-        padding: 8px;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-    }
-
-    #qrSize,
-    #qrColor,
-    #qrBgColor {
-        width: calc(50% - 10px); /* Уменьшить ширину до 50% */
-    }
-
-   
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-        input {
-            width: calc(100% - 20px);
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-        button {
-            display: inline-block;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.1s ease-in-out;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        button:active {
-            transform: translateY(1px);
-            box-shadow: none;
-        }
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: 1px solid #ccc;
-            transition: height 0.5s ease-in-out;
-        }
-        .error {
-            color: red;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        p a {
-            color: #333;
-            text-decoration: none;
-            margin-right: 10px;
-            padding: 8px 15px;
-            border: 2px solid #333;
-            border-radius: 5px;
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        }
-        p a:hover {
-            background-color: #333;
-            color: #fff;
-        }
-        h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        main {
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
-            margin-top: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #666;
-        }
-        footer .error {
-            color: red;
-            font-weight: bold;
-        }
-        .controls {
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body> 
-    <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
-    <button onclick="generateVideoQR()">Создать QR-код</button>
-    <button onclick="pasteFromClipboard()">Вставить</button>
-    <button onclick="clearQRCode()">Очистить</button>
-    <button onclick="copyToClipboard()">Копировать в буфер</button>
-    <br>
-    <label for="qrSize">Размер QR-кода:</label>
-    <input id="qrSize" type="number" min="100" max="500" value="200">
-    
-    <label for="qrColor">Цвет QR-кода:</label>
-    <input id="qrColor" type="color" value="#000000">
-    
-    <label for="qrBgColor">Цвет фона QR-кода:</label>
-    <input id="qrBgColor" type="color" value="#FFFFFF">
-    
-    <div id="qrcode"></div>
-
-    <div id="videoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeVideoModal()">&times;</span>
-            <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         var player;
-
+<h1> сайт обновила встречайте  версию 2,0993  
+    новые функции  подержак  и многое  другоe</h1>
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('videoFrame', {
                 height: '1500',
                 width: '1000',
-                videoId: '', // Идентификатор видео будет установлен динамически
+                videoId: '',
                 events: {
                     'onReady': onPlayerReady
                 }
@@ -149,7 +24,6 @@
         }
 
         function onPlayerReady(event) {
-            // Воспроизведение видео при готовности плеера
             event.target.playVideo();
         }
 
@@ -184,7 +58,6 @@
             qrContainer.innerHTML = '';
             qrContainer.appendChild(qrImage);
 
-            // Установка идентификатора видео для воспроизведения
             player.loadVideoById(videoLink);
         }
 
@@ -235,12 +108,136 @@
             }
         };
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const scannerVideo = document.getElementById("scanner-video");
+            const stopScanButton = document.getElementById("stop-scan");
+            const retryScanButton = document.getElementById("retry-scan");
+            const resultContainer = document.getElementById("result-container");
+            const resultMessage = document.getElementById("result-message");
 
+            let scanning = true;
+
+            stopScanButton.addEventListener("click", () => {
+                stopScanning();
+            });
+
+            retryScanButton.addEventListener("click", () => {
+                retryScanning();
+            });
+
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+                .then((stream) => {
+                    scannerVideo.srcObject = stream;
+                    return new Promise((resolve) => {
+                        scannerVideo.onloadedmetadata = () => {
+                            resolve();
+                        };
+                    });
+                })
+                .then(() => {
+                    const qrScanner = new QCodeDecoder();
+
+                    const handleScannerVideo = () => {
+                        if (!scanning) {
+                            scannerVideo.srcObject.getTracks().forEach(track => track.stop());
+                            return;
+                        }
+
+                        try {
+                            qrScanner.decodeFromVideo(scannerVideo, (err, result) => {
+                                if (result) {
+                                    displayScannerResult(result);
+                                    stopScanning();
+                                }
+                                handleScannerVideo();
+                            });
+                        } catch (e) {
+                            console.error(e);
+                            handleScannerVideo();
+                        }
+                    };
+
+                    handleScannerVideo();
+                })
+                .catch((error) => {
+                    console.error("Ошибка при получении доступа к камере для сканирования: ", error);
+                    displayScannerError("Ошибка при получении доступа к камере для сканирования. Пожалуйста, перезагрузите страницу.");
+                });
+
+            function displayScannerResult(result) {
+                resultMessage.textContent = "QR Code содержит: " + result;
+                resultContainer.classList.remove("hidden");
+                retryScanButton.style.display = "block";
+            }
+
+            function displayScannerError(errorMessage) {
+                resultMessage.textContent = errorMessage;
+                resultContainer.style.backgroundColor = "#f8d7da";
+                resultContainer.style.borderColor = "#f5c6cb";
+                resultContainer.style.color = "#721c24";
+                resultContainer.classList.remove("hidden");
+                retryScanButton.style.display = "block";
+            }
+
+            function stopScanning() {
+                scanning = false;
+                stopScanButton.style.display = "none";
+                retryScanButton.style.display = "block";
+            }
+
+            function retryScanning() {
+                scanning = true;
+                stopScanButton.style.display = "block";
+                retryScanButton.style.display = "none";
+                resultContainer.classList.add("hidden");
+                resultContainer.style.backgroundColor = "#dff0d8";
+                resultContainer.style.borderColor = "#c3e6cb";
+                resultContainer.style.color = "#155724";
+                handleScannerVideo();
+            }
+        });
+    </script>
+</head>
+<body>
+    <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
+    <button onclick="generateVideoQR()">Создать QR-код</button>
+    <button onclick="pasteFromClipboard()">Вставить</button>
+    <button onclick="clearQRCode()">Очистить</button>
+    <button onclick="copyToClipboard()">Копировать в буфер</button>
+    <br>
+    <label for="qrSize">Размер QR-кода:</label>
+    <input id="qrSize" type="number" min="100" max="500" value="200">
     
+    <label for="qrColor">Цвет QR-кода:</label>
+    <input id="qrColor" type="color" value="#000000">
+    
+    <label for="qrBgColor">Цвет фона QR-кода:</label>
+    <input id="qrBgColor" type="color" value="#FFFFFF">
+    
+    <div id="qrcode"></div>
 
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeVideoModal()">&times;</span>
+            <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
 
+    <div class="scanner-container">
+        <h2>Сканер QR-кода</h2>
+        <video id="scanner-video" width="300" height="300" autoplay playsinline></video>
+        <button id="stop-scan" class="control-button">Остановить сканирование</button>
+        <button id="retry-scan" class="control-button hidden">Повторить сканирование</button>
+        <div id="result-container" class="hidden">
+            <p id="result-message"></p>
+        </div>
+    </div>
 
+   
     <p>&copy; 2024 Разработчик  Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
+
+
     
 
 
