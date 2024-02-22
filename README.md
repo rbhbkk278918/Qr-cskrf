@@ -10,7 +10,7 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         var player;
-<h1> сайт обновила встречайте  версию 2,0993  
+<h1> сайт обновилася встречайте  версию 2,0993  
     новые функции  подержак  и многое  другоe</h1>
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('videoFrame', {
