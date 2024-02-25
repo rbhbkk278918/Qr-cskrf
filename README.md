@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -104,20 +105,6 @@
             });
         }
 
-        function closeVideoModal() {
-            var modal = document.getElementById('videoModal');
-            var videoFrame = document.getElementById('videoFrame');
-            videoFrame.src = '';
-            modal.style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            var modal = document.getElementById('videoModal');
-            if (event.target == modal) {
-                closeVideoModal();
-            }
-        };
-
         function startScanning() {
             const scannerVideo = document.getElementById("scanner-video");
             const qrScanner = new QCodeDecoder();
@@ -211,13 +198,6 @@
     
     <div id="qrcode"></div>
 
-    <div id="videoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeVideoModal()">&times;</span>
-            <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-
     <div class="scanner-container">
         <h2>Сканер QR-кода</h2>
         <video id="scanner-video" width="300" height="300" autoplay playsinline></video>
@@ -231,4 +211,3 @@
     <div id="uploadedImage"></div>
 
     <p>&copy; 2024 Разработчик Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
-
