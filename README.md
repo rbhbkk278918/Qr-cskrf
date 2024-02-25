@@ -188,9 +188,7 @@
     </script>
 </head>
 <body>
-    <h1>сайт обновилася встречайте версию 2,0993  
-        новые функции поддержка и многое другое</h1>
-
+ 
     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
     <button onclick="generateVideoQR()">Создать QR-код</button>
     <button onclick="pasteFromClipboard()">Вставить</button>
@@ -227,6 +225,8 @@
     </div>
 
     <div id="uploadedImage"></div>
+   <p>сайт обновился встречайте версию 2.993  
+        новые функции поддержка и многое другое</p>
 
     <p>&copy; 2024 Разработчик Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
 </body>
