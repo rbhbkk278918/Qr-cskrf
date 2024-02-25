@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,10 +27,17 @@
         }
 
         function generateVideoQR() {
+            console.log("Generating QR code...");
+
             var videoLink = document.getElementById('videoLink').value;
             var qrSize = document.getElementById('qrSize').value;
             var qrColor = document.getElementById('qrColor').value;
             var qrBgColor = document.getElementById('qrBgColor').value;
+
+            console.log("Video Link: " + videoLink);
+            console.log("QR Size: " + qrSize);
+            console.log("QR Color: " + qrColor);
+            console.log("QR Background Color: " + qrBgColor);
 
             var qr = qrcode(0, 'M');
             qr.addData(videoLink);
@@ -58,6 +65,8 @@
             qrContainer.appendChild(qrImage);
 
             player.loadVideoById(videoLink);
+
+            console.log("QR code generated successfully!");
         }
 
         function clearQRCode() {
@@ -152,16 +161,42 @@
             alert("QR Code содержит: " + result);
             stopScanning();
         }
+
+        // Function to handle image upload and display
+        function handleImageUpload() {
+            var input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.click();
+            
+            input.onchange = function () {
+                var file = input.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        displayImage(e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+        }
+
+        function displayImage(imageData) {
+            var imageContainer = document.getElementById('uploadedImage');
+            imageContainer.innerHTML = '<img src="' + imageData + '" alt="Uploaded Image" style="max-width: 100%;">';
+        }
     </script>
 </head>
 <body>
-    
+    <h1>сайт обновилася встречайте версию 2,0993  
+        новые функции поддержка и многое другое</h1>
 
     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
     <button onclick="generateVideoQR()">Создать QR-код</button>
     <button onclick="pasteFromClipboard()">Вставить</button>
     <button onclick="clearQRCode()">Очистить</button>
     <button onclick="copyToClipboard()">Копировать в буфер</button>
+    <button onclick="handleImageUpload()">Загрузить и вставить фото</button>
     <br>
     <label for="qrSize">Размер QR-кода:</label>
     <input id="qrSize" type="number" min="100" max="500" value="200">
@@ -190,7 +225,9 @@
             <p id="result-message"></p>
         </div>
     </div>
-<p>Cайт обновился встречайте версию 2.0993  
-        новые функции поддержка и многое другое</p>
-    <p>&copy; 2024 Разработчик Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
 
+    <div id="uploadedImage"></div>
+
+    <p>&copy; 2024 Разработчик Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
+</body>
+</html>
