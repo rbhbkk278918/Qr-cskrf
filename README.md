@@ -106,24 +106,10 @@
                 closeVideoModal();
             }
         };
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        
+        function startScanning() {
             const scannerVideo = document.getElementById("scanner-video");
-            const stopScanButton = document.getElementById("stop-scan");
-            const retryScanButton = document.getElementById("retry-scan");
-            const resultContainer = document.getElementById("result-container");
-            const resultMessage = document.getElementById("result-message");
-
-            let scanning = true;
-
-            stopScanButton.addEventListener("click", () => {
-                stopScanning();
-            });
-
-            retryScanButton.addEventListener("click", () => {
-                retryScanning();
-            });
+            const qrScanner = new QCodeDecoder();
 
             navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
                 .then((stream) => {
@@ -135,14 +121,7 @@
                     });
                 })
                 .then(() => {
-                    const qrScanner = new QCodeDecoder();
-
                     const handleScannerVideo = () => {
-                        if (!scanning) {
-                            scannerVideo.srcObject.getTracks().forEach(track => track.stop());
-                            return;
-                        }
-
                         try {
                             qrScanner.decodeFromVideo(scannerVideo, (err, result) => {
                                 if (result) {
@@ -161,45 +140,23 @@
                 })
                 .catch((error) => {
                     console.error("Ошибка при получении доступа к камере для сканирования: ", error);
-                   
                 });
+        }
 
-            function displayScannerResult(result) {
-                resultMessage.textContent = "QR Code содержит: " + result;
-                resultContainer.classList.remove("hidden");
-                retryScanButton.style.display = "block";
-            }
+        function stopScanning() {
+            const scannerVideo = document.getElementById("scanner-video");
+            scannerVideo.srcObject.getTracks().forEach(track => track.stop());
+        }
 
-            function displayScannerError(errorMessage) {
-                resultMessage.textContent = errorMessage;
-                resultContainer.style.backgroundColor = "#f8d7da";
-                resultContainer.style.borderColor = "#f5c6cb";
-                resultContainer.style.color = "#721c24";
-                resultContainer.classList.remove("hidden");
-                retryScanButton.style.display = "block";
-            }
-
-            function stopScanning() {
-                scanning = false;
-                stopScanButton.style.display = "none";
-                retryScanButton.style.display = "block";
-            }
-
-            function retryScanning() {
-                scanning = true;
-                stopScanButton.style.display = "block";
-                retryScanButton.style.display = "none";
-                resultContainer.classList.add("hidden");
-                resultContainer.style.backgroundColor = "#dff0d8";
-                resultContainer.style.borderColor = "#c3e6cb";
-                resultContainer.style.color = "#155724";
-                handleScannerVideo();
-            }
-        });
+        function displayScannerResult(result) {
+            alert("QR Code содержит: " + result);
+            stopScanning();
+        }
     </script>
 </head>
 <body>
     
+
     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
     <button onclick="generateVideoQR()">Создать QR-код</button>
     <button onclick="pasteFromClipboard()">Вставить</button>
@@ -227,16 +184,13 @@
     <div class="scanner-container">
         <h2>Сканер QR-кода</h2>
         <video id="scanner-video" width="300" height="300" autoplay playsinline></video>
-        <button id="stop-scan" class="control-button">Остановить сканирование</button>
-        <button id="retry-scan" class="control-button hidden">Повторить сканирование</button>
+        <button onclick="startScanning()">Начать сканирование</button>
+        <button onclick="stopScanning()">Остановить сканирование</button>
         <div id="result-container" class="hidden">
             <p id="result-message"></p>
         </div>
     </div>
-<p>сайт обновилася встречайте  версию 2.993  
-    новые функции  подержака  и многое  другоe</p>
-
+<p>Cайт обновился встречайте версию 2.0993  
+        новые функции поддержка и многое другое</p>
     <p>&copy; 2024 Разработчик Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
-</body>
-</html>
 
