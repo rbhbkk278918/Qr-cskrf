@@ -162,7 +162,7 @@
                 })
                 .catch((error) => {
                     console.error("Ошибка при получении доступа к камере для сканирования: ", error);
-                    displayScannerError("Ошибка при получении доступа к камере для сканирования. Пожалуйста, перезагрузите страницу.");
+                   
                 });
 
             function displayScannerResult(result) {
