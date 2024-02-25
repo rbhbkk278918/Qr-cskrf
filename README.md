@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -199,6 +200,9 @@
     </script>
 </head>
 <body>
+    <h1>сайт обновилася встречайте  версию 2,0993  
+    новые функции  подержак  и многое  другоe</h1>
+
     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
     <button onclick="generateVideoQR()">Создать QR-код</button>
     <button onclick="pasteFromClipboard()">Вставить</button>
@@ -234,4 +238,6 @@
     </div>
 
     <p>&copy; 2024 Разработчик Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
+</body>
+</html>
 
