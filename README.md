@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -101,15 +101,7 @@
         function pasteFromClipboard() {
             navigator.clipboard.readText().then(function(text) {
                 document.getElementById('videoLink').value = text;
-                openVideoModal(text);
             });
-        }
-
-        function openVideoModal(videoLink) {
-            var modal = document.getElementById('videoModal');
-            var videoFrame = document.getElementById('videoFrame');
-            videoFrame.src = videoLink;
-            modal.style.display = 'block';
         }
 
         function closeVideoModal() {
@@ -239,5 +231,4 @@
     <div id="uploadedImage"></div>
 
     <p>&copy; 2024 Разработчик Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
-</body>
-</html>
+
