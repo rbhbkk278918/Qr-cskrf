@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,24 +27,19 @@
         }
 
         function generateVideoQR() {
-            console.log("Generating QR code...");
+            var videoLink = document.getElementById('videoLink').value;
+            var videoId = getVideoIdFromLink(videoLink);
 
-            // Check if the YouTube API is ready before generating the QR code
-            if (typeof YT === 'undefined' || !YT.loaded) {
-                console.log("YouTube API not ready. Waiting for API to be loaded...");
-                // Wait for 500 milliseconds and then try to generate the QR code again
-                setTimeout(function() {
-                    generateVideoQR();
-                }, 500);
+            if (!videoId) {
+                console.error("Invalid YouTube video link. Please enter a valid link.");
                 return;
             }
 
-            var videoLink = document.getElementById('videoLink').value;
             var qrSize = document.getElementById('qrSize').value;
             var qrColor = document.getElementById('qrColor').value;
             var qrBgColor = document.getElementById('qrBgColor').value;
 
-            console.log("Video Link: " + videoLink);
+            console.log("Video ID: " + videoId);
             console.log("QR Size: " + qrSize);
             console.log("QR Color: " + qrColor);
             console.log("QR Background Color: " + qrBgColor);
@@ -75,9 +69,14 @@
             qrContainer.innerHTML = '';
             qrContainer.appendChild(qrImage);
 
-            player.loadVideoById(videoLink);
+            player.loadVideoById(videoId);
 
             console.log("QR code generated successfully!");
+        }
+
+        function getVideoIdFromLink(videoLink) {
+            var match = videoLink.match(/[?&]v=([^?&]+)/);
+            return match ? match[1] : '';
         }
 
         function clearQRCode() {
@@ -123,7 +122,7 @@
                         try {
                             qrScanner.decodeFromVideo(scannerVideo, (err, result) => {
                                 if (result) {
-                                    displayScannerResult(result);
+                                    alert("QR Code содержит: " + result);
                                     stopScanning();
                                 }
                                 handleScannerVideo();
@@ -145,39 +144,10 @@
             const scannerVideo = document.getElementById("scanner-video");
             scannerVideo.srcObject.getTracks().forEach(track => track.stop());
         }
-
-        function displayScannerResult(result) {
-            alert("QR Code содержит: " + result);
-            stopScanning();
-        }
-
-        // Function to handle image upload and display
-        function handleImageUpload() {
-            var input = document.createElement('input');
-            input.type = 'file';
-            input.accept = 'image/*';
-            input.click();
-            
-            input.onchange = function () {
-                var file = input.files[0];
-                if (file) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        displayImage(e.target.result);
-                    };
-                    reader.readAsDataURL(file);
-                }
-            };
-        }
-
-        function displayImage(imageData) {
-            var imageContainer = document.getElementById('uploadedImage');
-            imageContainer.innerHTML = '<img src="' + imageData + '" alt="Uploaded Image" style="max-width: 100%;">';
-        }
     </script>
 </head>
 <body>
-    <h1>сайт обновилася встречайте версию 2,0993  
+    <h1>сайт обновилась, встречайте версию 2.0993  
         новые функции поддержка и многое другое</h1>
 
     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
@@ -185,7 +155,6 @@
     <button onclick="pasteFromClipboard()">Вставить</button>
     <button onclick="clearQRCode()">Очистить</button>
     <button onclick="copyToClipboard()">Копировать в буфер</button>
-    <button onclick="handleImageUpload()">Загрузить и вставить фото</button>
     <br>
     <label for="qrSize">Размер QR-кода:</label>
     <input id="qrSize" type="number" min="100" max="500" value="200">
@@ -203,11 +172,9 @@
         <video id="scanner-video" width="300" height="300" autoplay playsinline></video>
         <button onclick="startScanning()">Начать сканирование</button>
         <button onclick="stopScanning()">Остановить сканирование</button>
-        <div id="result-container" class="hidden">
-            <p id="result-message"></p>
-        </div>
     </div>
 
-    <div id="uploadedImage"></div>
-
     <p>&copy; 2024 Разработчик Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
+</body>
+</html>
+
