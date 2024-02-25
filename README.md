@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -229,5 +229,3 @@
         новые функции поддержка и многое другое</p>
 
     <p>&copy; 2024 Разработчик Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
-</body>
-</html>
