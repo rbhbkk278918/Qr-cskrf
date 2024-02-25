@@ -1,4 +1,5 @@
 
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,6 +30,19 @@
         function generateVideoQR() {
             console.log("Generating QR code...");
 
+            // Check if the YouTube API is ready before generating the QR code
+            if (typeof YT !== 'undefined' && YT.loaded) {
+                generateQRCode();
+            } else {
+                console.log("YouTube API not ready. Waiting for API to be loaded...");
+                // Wait for 500 milliseconds and then try to generate the QR code again
+                setTimeout(function() {
+                    generateQRCode();
+                }, 500);
+            }
+        }
+
+        function generateQRCode() {
             var videoLink = document.getElementById('videoLink').value;
             var qrSize = document.getElementById('qrSize').value;
             var qrColor = document.getElementById('qrColor').value;
@@ -115,7 +129,7 @@
                 closeVideoModal();
             }
         };
-        
+
         function startScanning() {
             const scannerVideo = document.getElementById("scanner-video");
             const qrScanner = new QCodeDecoder();
@@ -189,6 +203,7 @@
 </head>
 <body>
  
+
     <input id="videoLink" type="text" placeholder="Введите ссылку на видео">
     <button onclick="generateVideoQR()">Создать QR-код</button>
     <button onclick="pasteFromClipboard()">Вставить</button>
@@ -225,7 +240,6 @@
     </div>
 
     <div id="uploadedImage"></div>
-   <p>сайт обновился встречайте версию 2.993  
-        новые функции поддержка и многое другое</p>
-
+   <h1>сайт обновилася встречайте версию 2,0993  
+        новые функции поддержка и многое другое</h1>
     <p>&copy; 2024 Разработчик Dylan9332789Z Все права защищены. | <span id="companyLink"></span></p>
